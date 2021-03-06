@@ -1,0 +1,7 @@
+.review-item{
+    display: block;
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}

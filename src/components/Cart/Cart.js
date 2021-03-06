@@ -1,13 +1,14 @@
 import React from 'react';
-
 const Cart = (props) => {
     const cart = props.cart
-    const total = cart.reduce((total, prd)=> total+prd.price ,0)
-    // for(let i=0; i < cart.length; i++){
-    //     const prd = cart[i];
-    //     total = total + prd.price;y
-    // }
-
+    // const total = cart.reduce((total, prd)=> total+prd.price * prd.quantity,0)
+  
+    let total = 0;
+    for(let i=0; i < cart.length; i++){
+        const prd = cart[i];
+        total = total + prd.price * prd.quantity;
+    }
+    
     let shipping = 0;
     if(total > 35){
         shipping = 0;
@@ -34,6 +35,11 @@ const Cart = (props) => {
             <p>Tax + Vat: {tax}</p>
             {/* <p>Total Price :{formatNumber(grandTotal)}</p> */}
             <p>Total Price :{grandTotal}</p>
+            <br/>
+            {
+                props.children
+            }
+            
         </div>
     );
 };
